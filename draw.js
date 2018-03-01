@@ -1,17 +1,18 @@
+
 var board = document.getElementById("board");
 var clear = document.getElementById("clear");
 
+// create new element; add x, y, r, and fill color; append child
 var draw = function(e) {
-    console.log( e.offsetX )
-    console.log( e.offsetY )
-    var circle = document.createElementNS("http://www.w3.org/2000/svg",
-					  "circle");
-    circle.setAttribute("cx", "100");
-    circle.setAttribute("cy", "100");
-    circle.setAttribute("r", "10");
-    board.appendChild(circle);
+    var cic = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    cic.setAttribute("cx", e.offsetX.toString());
+    cic.setAttribute("cy", e.offsetY.toString());
+    cic.setAttribute("r", "10");
+    cic.setAttribute("fill", "#23D404");
+    board.appendChild(cic);
 }
 
+//delete all child nodes
 var clearing = function(e) {
     while (board.hasChildNodes()) {
 	board.removeChild(board.childNodes[0]);
